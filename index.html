@@ -1,9 +1,87 @@
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>タイトル</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <title>elemental diet</title>
 </head>
+
 <body>
-本文
+    <main>
+        <nav class="navigation">
+            <section class="container">
+                <a class="navigation-title"></a>
+            </section>
+        </nav>
+        <h1 class="container">エレンタールPとほほえみのカロリー換算</h1>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="column">
+                    <label class="" id="">エレンタール</label>
+                </div>
+
+                <div class="column">
+                    <input class="" type="tel" id="elemental">
+                </div>
+                <div class="column">
+                    <button id="send">ほほえみに換算</button>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label class="" id="">ほほえみ</label>
+                </div>
+
+                <div class="column">
+                    <input class="" type="tel" id="hohoemi">
+                </div>
+                <div class="column">
+                    <button id="send2">エレンタールに換算</button>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="column">
+                    <button id="clear">数値クリア</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        const perkl_hohoemi = 0.68;
+        const perkl_elemental = 1.04;
+
+        $("#clear").click(function () {
+            $("#hohoemi").val('');
+            $("#elemental").val('');
+        });
+
+        $("#send").click(function () {
+            let ml = $("#elemental").val();
+            let res = ml * perkl_elemental / perkl_hohoemi;
+            $("#hohoemi").val(res.toFixed(2));
+        });
+
+        $("#send2").click(function () {
+            let ml = $("#hohoemi").val();
+            let res = ml * perkl_hohoemi / perkl_elemental;
+            $("#elemental").val(res.toFixed(2));
+        });
+    </script>
 </body>
+
 </html>
